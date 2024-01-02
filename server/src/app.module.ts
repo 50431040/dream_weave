@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RedisModule } from '@liaoliaots/nestjs-redis';
 import { BullModule } from '@nestjs/bull';
+import { EventModule } from './event/event.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { BullModule } from '@nestjs/bull';
         redis: configService.get('BULL_REDIS_URL'),
       }),
     }),
+    EventModule,
   ],
   controllers: [AppController],
   providers: [AppService],
