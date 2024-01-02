@@ -1,0 +1,22 @@
+{
+  "name": "dream_weave_js_sdk",
+  "version": "1.0.0",
+  "description": "梦维JS SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/50431040/dream_weave.git"
+  },
+  "keywords": [
+    "前端埋点、前端监控"
+  ],
+  "author": "Stahsf",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/50431040/dream_weave/issues"
+  },
+  "homepage": "https://github.com/50431040/dream_weave#readme"
+}
