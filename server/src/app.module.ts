@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { RedisModule } from '@liaoliaots/nestjs-redis';
 import { BullModule } from '@nestjs/bull';
 import { EventModule } from './event/event.module';
+import { ApplicationModule } from './application/application.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { EventModule } from './event/event.module';
       }),
     }),
     EventModule,
+    ApplicationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
