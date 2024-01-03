@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { BaseField } from './base.schema';
 
 export type EventDocument = Event & Document;
 
@@ -7,13 +8,7 @@ export type EventDocument = Event & Document;
  * 事件
  */
 @Schema()
-export class EventModel extends Document {
-  /**
-   * APPID
-   */
-  @Prop({ index: true, required: true })
-  appId: string;
-
+export class EventModel extends BaseField {
   /**
    * 事件ID
    */
