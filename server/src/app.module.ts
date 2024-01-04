@@ -7,6 +7,8 @@ import { RedisModule } from '@liaoliaots/nestjs-redis';
 import { BullModule } from '@nestjs/bull';
 import { EventModule } from './event/event.module';
 import { ApplicationModule } from './application/application.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -43,6 +45,11 @@ import { ApplicationModule } from './application/application.module';
       useFactory: (configService: ConfigService) => ({
         redis: configService.get('BULL_REDIS_URL'),
       }),
+    }),
+    // 静态资源托管
+    ServeStaticModule.forRoot({
+      serveRoot: '/static',
+      rootPath: join(__dirname, '..', 'static'),
     }),
     EventModule,
     ApplicationModule,
