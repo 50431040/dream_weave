@@ -27,9 +27,7 @@ export class AppController {
     }
 
     const route = request.path.replace('sdk.js', '');
-    const url = `${request.protocol}://${request.headers['host']}${
-      route.length === 1 ? '/' : route
-    }static/dream_weave.js`;
+    const url = `${request.protocol}://${request.headers['host']}${route}static/dream_weave.js`;
     return `
     var script=document.createElement('script');
     script.src=${url};
