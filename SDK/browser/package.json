@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "rollup -c -w",
     "build": "rollup -c rollup.config.js"
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/50431040/dream_weave#readme",
   "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
     "rollup": "^4.9.3",
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.3.3"

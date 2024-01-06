@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": ["DOM", "ES2015"],
     "module": "es2015",
     "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "resolveJsonModule": true,
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
