@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "梦维JS SDK",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/50431040/dream_weave/issues"
   },
-  "homepage": "https://github.com/50431040/dream_weave#readme"
+  "homepage": "https://github.com/50431040/dream_weave#readme",
+  "devDependencies": {
+    "rollup": "^4.9.3",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.3.3"
+  }
 }
