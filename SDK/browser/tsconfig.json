@@ -10,6 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
     "resolveJsonModule": true,
+    "removeComments": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
