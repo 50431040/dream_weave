@@ -1,6 +1,6 @@
 import { isInitialized } from "./init";
 import { log } from "./log";
-import { upload } from "./upload";
+import { uploadEvent } from "./upload";
 
 export const onEvent = (name: string, params: Record<string, string>) => {
   if (!isInitialized()) {
@@ -18,7 +18,7 @@ export const onEvent = (name: string, params: Record<string, string>) => {
     return;
   }
 
-  upload({
+  uploadEvent({
     name,
     params,
   });

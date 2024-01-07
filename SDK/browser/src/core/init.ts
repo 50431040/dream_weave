@@ -1,14 +1,15 @@
 import { log } from "./log";
+import { initialRequest } from "./request";
 
 let _initialized = false;
 let _appId = "";
 let _userId: string = "";
 let _debug = false;
-let _reportUrl = "";
+let _baseUrl = "";
 
 export function initSDK(
   appId: string,
-  reportUrl: string,
+  baseUrl: string,
   debug: boolean = false
 ) {
   if (typeof window === "undefined") {
@@ -26,15 +27,23 @@ export function initSDK(
     return;
   }
 
-  if (typeof reportUrl !== "string" || !reportUrl) {
-    log("reportUrl is not valid");
+  if (typeof baseUrl !== "string" || !baseUrl) {
+    log("baseUrl is not valid");
     return;
   }
 
-  _appId = appId;
-  _debug = debug;
-  _reportUrl = reportUrl;
-  _initialized = true;
+  initialRequest(
+    baseUrl,
+    () => {
+      _appId = appId;
+      _debug = debug;
+      _baseUrl = baseUrl;
+      _initialized = true;
+    },
+    () => {
+      _initialized = false;
+    }
+  );
 }
 
 export function isInitialized() {
@@ -57,6 +66,6 @@ export function isDebug() {
   return _debug;
 }
 
-export function getReportUrl() {
-  return _reportUrl;
+export function getBaseUrl() {
+  return _baseUrl;
 }

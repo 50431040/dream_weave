@@ -1,29 +1,14 @@
 import { debounce } from "../utils";
 import { browser, system, userAgent } from "./device";
-import { getAPPID, getReportUrl, getUserId, isInitialized } from "./init";
+import { getAPPID, getUserId, isInitialized } from "./init";
 import { log } from "./log";
 import { version } from "../../package.json";
+import { msgRequest } from "./request";
 
-const request = function (params: Record<string, any>) {
-  let xhr: XMLHttpRequest;
-  xhr = new XMLHttpRequest();
-  xhr.open("POST", getReportUrl());
-  xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+const uploadDebounce = debounce(msgRequest, 500);
+let eventArr: Record<string, any>[] = [];
 
-  log(params);
-  xhr.send(JSON.stringify(params));
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 340) {
-      } else {
-      }
-    }
-  };
-};
-
-const requestDebounce = debounce(request, 500);
-
-export const upload = function (data: Record<string, any>) {
+export const uploadEvent = function (data: Record<string, any>) {
   if (!isInitialized()) {
     log("sdk not init.");
     return;
@@ -41,6 +26,9 @@ export const upload = function (data: Record<string, any>) {
     userAgent,
     ...data,
   };
+  eventArr.push(params);
 
-  requestDebounce(params);
+  uploadDebounce("event", eventArr, () => {
+    eventArr = [];
+  });
 };
