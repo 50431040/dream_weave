@@ -4,6 +4,7 @@
   "description": "梦维JS SDK",
   "main": "index.js",
   "type": "module",
+  "files": ["dist", "src"],
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c rollup.config.js"
