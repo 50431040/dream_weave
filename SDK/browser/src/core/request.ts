@@ -8,7 +8,7 @@ export const initialRequest = (
 ) => {
   let xhr: XMLHttpRequest;
   xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
+  xhr.open("GET", `${url}/init`);
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
   xhr.send();
