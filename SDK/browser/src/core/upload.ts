@@ -31,6 +31,10 @@ export const uploadEvent = function (data?: Record<string, any>) {
     return;
   }
 
+  if (eventArr.length === 0) {
+    return;
+  }
+
   uploadDebounce("event", eventArr, () => {
     eventArr = [];
   });
