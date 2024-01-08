@@ -1,5 +1,6 @@
 import { log } from "./log";
 import { initialRequest } from "./request";
+import { uploadEvent } from "./upload";
 
 let _initialized = false;
 let _appId = "";
@@ -39,6 +40,7 @@ export function initSDK(
       _debug = debug;
       _baseUrl = baseUrl;
       _initialized = true;
+      uploadEvent();
     },
     () => {
       _initialized = false;

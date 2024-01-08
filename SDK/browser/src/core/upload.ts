@@ -8,25 +8,28 @@ import { msgRequest } from "./request";
 const uploadDebounce = debounce(msgRequest, 500);
 let eventArr: Record<string, any>[] = [];
 
-export const uploadEvent = function (data: Record<string, any>) {
-  if (!isInitialized()) {
-    log("sdk not init.");
-    return;
+export const uploadEvent = function (data?: Record<string, any>) {
+  if (data) {
+    const params: Record<string, any> = {
+      appId: getAPPID(),
+      userId: getUserId(),
+      origin: window.location.origin,
+      uri: window.location.href,
+      timestamp: Date.now(),
+      version,
+      browser,
+      system,
+      userAgent,
+      ...data,
+    };
+    eventArr.push(params);
   }
 
-  const params: Record<string, any> = {
-    appId: getAPPID(),
-    userId: getUserId(),
-    origin: window.location.origin,
-    uri: window.location.href,
-    timestamp: Date.now(),
-    version,
-    browser,
-    system,
-    userAgent,
-    ...data,
-  };
-  eventArr.push(params);
+  // When sdk not initialized, data is stored and uploaded after initialization.
+  if (!isInitialized()) {
+    log("sdk not init. Will be uploaded after initialization");
+    return;
+  }
 
   uploadDebounce("event", eventArr, () => {
     eventArr = [];
