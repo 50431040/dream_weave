@@ -6,7 +6,7 @@ export default {
   input: "src/index.ts",
   output: {
     file: "dist/dream_weave.js",
-    format: "umd",
+    format: "iife",
     name: "DreamWeave",
   },
   plugins: [
