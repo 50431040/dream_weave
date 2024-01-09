@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import helmet from 'helmet';
+import { ResponseInterceptor } from './interceptor/response.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -10,6 +11,7 @@ async function bootstrap() {
   app.use(compression());
   app.use(cookieParser());
   app.enableCors();
+  app.useGlobalInterceptors(new ResponseInterceptor());
   await app.listen(3000);
 }
 bootstrap();
