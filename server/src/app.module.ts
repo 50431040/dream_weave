@@ -9,6 +9,8 @@ import { EventModule } from './event/event.module';
 import { ApplicationModule } from './application/application.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { APP_FILTER } from '@nestjs/core';
+import { AllExceptionsFilter } from './filter/http-exception.filter';
 
 @Module({
   imports: [
@@ -55,6 +57,12 @@ import { join } from 'path';
     ApplicationModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter,
+    },
+  ],
 })
 export class AppModule {}
