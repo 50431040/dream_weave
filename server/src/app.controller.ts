@@ -21,6 +21,8 @@ export class AppController {
     if (!uId) {
       response.cookie(COOKIE_UID, `dw_${uuid()}`, {
         httpOnly: true,
+        secure: true,
+        sameSite: "none"
       });
     }
 

@@ -10,7 +10,10 @@ async function bootstrap() {
   app.use(helmet());
   app.use(compression());
   app.use(cookieParser());
-  app.enableCors();
+  app.enableCors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  });
   app.useGlobalInterceptors(new ResponseInterceptor());
   await app.listen(3000);
 }

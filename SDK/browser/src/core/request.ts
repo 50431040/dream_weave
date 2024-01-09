@@ -8,6 +8,7 @@ export const initialRequest = (
 ) => {
   let xhr: XMLHttpRequest;
   xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
   xhr.open("GET", `${url}/init`);
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
@@ -30,6 +31,7 @@ export const msgRequest = function (
 ) {
   let xhr: XMLHttpRequest;
   xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
   xhr.open("POST", `${getBaseUrl()}/${name}`);
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
