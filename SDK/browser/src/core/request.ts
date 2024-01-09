@@ -33,7 +33,6 @@ export const msgRequest = function (
   xhr.open("POST", `${getBaseUrl()}/${name}`);
   xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
-  log(params);
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {

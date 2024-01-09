@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { EventService } from './event.service';
 import { Cookies } from '../decorator/cookie.decorator';
 import { COOKIE_UID } from '../constants/cookie';
@@ -7,12 +7,13 @@ import { COOKIE_UID } from '../constants/cookie';
 export class EventController {
   constructor(private readonly eventService: EventService) {}
 
-  @Get()
-  addEvent(@Cookies(COOKIE_UID) uId: string) {
+  @Post()
+  addEvent(@Cookies(COOKIE_UID) uId: string, @Body() body: any) {
     if (!uId) {
       return;
     }
 
     // TODO
+    console.log(body);
   }
 }

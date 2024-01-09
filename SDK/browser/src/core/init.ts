@@ -40,6 +40,7 @@ export function initSDK(
       _debug = debug;
       _baseUrl = baseUrl;
       _initialized = true;
+      log("init success");
       uploadEvent();
     },
     () => {

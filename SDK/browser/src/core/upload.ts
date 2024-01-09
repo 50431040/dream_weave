@@ -10,19 +10,7 @@ let eventArr: Record<string, any>[] = [];
 
 export const uploadEvent = function (data?: Record<string, any>) {
   if (data) {
-    const params: Record<string, any> = {
-      appId: getAPPID(),
-      userId: getUserId(),
-      origin: window.location.origin,
-      uri: window.location.href,
-      timestamp: Date.now(),
-      version,
-      browser,
-      system,
-      userAgent,
-      ...data,
-    };
-    eventArr.push(params);
+    eventArr.push(data);
   }
 
   // When sdk not initialized, data is stored and uploaded after initialization.
@@ -35,7 +23,24 @@ export const uploadEvent = function (data?: Record<string, any>) {
     return;
   }
 
-  uploadDebounce("event", eventArr, () => {
-    eventArr = [];
-  });
+  log("start upload.");
+  uploadDebounce(
+    "event",
+    eventArr.map((item) => ({
+      appId: getAPPID(),
+      userId: getUserId(),
+      origin: window.location.origin,
+      uri: window.location.href,
+      timestamp: Date.now(),
+      version,
+      browser,
+      system,
+      userAgent,
+      ...item,
+    })),
+    () => {
+      log("upload ends.");
+      eventArr = [];
+    }
+  );
 };

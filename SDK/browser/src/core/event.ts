@@ -3,11 +3,6 @@ import { log } from "./log";
 import { uploadEvent } from "./upload";
 
 export const onEvent = (name: string, params: Record<string, string>) => {
-  if (!isInitialized()) {
-    log(`sdk not init.`);
-    return;
-  }
-
   if (typeof name !== "string" || !name) {
     log(`event name is not valid`);
     return;
