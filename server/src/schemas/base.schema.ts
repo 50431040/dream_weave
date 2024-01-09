@@ -8,7 +8,7 @@ export class BaseField extends Document {
   /**
    * APPID
    */
-  @Prop({ index: true, required: true })
+  @Prop()
   appId: string;
   /**
    * 唯一用户ID

@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import {
-  EventDocument,
-} from '../schemas/event.schema';
+import { EventDocument } from '../schemas/event.schema';
+import { EventDTO } from './event.dto';
 
 @Injectable()
 export class EventService {
@@ -11,23 +10,9 @@ export class EventService {
 
   /**
    * 新增事件
-   * @param appId APPID
-   * @param eventId 事件ID
-   * @param name 事件名
-   * @param params 其他参数
    */
-  async add(
-    appId: string,
-    eventId: string,
-    name: string,
-    params?: Record<string, any>,
-  ) {
-    const data = new this.eventModel({
-      appId,
-      eventId,
-      name,
-      params: params,
-    });
+  async add(event: EventDTO) {
+    const data = new this.eventModel(event);
     await data.save();
   }
 

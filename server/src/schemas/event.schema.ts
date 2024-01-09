@@ -10,12 +10,6 @@ export type EventDocument = Event & Document;
 @Schema()
 export class EventModel extends BaseField {
   /**
-   * 事件ID
-   */
-  @Prop({ required: true })
-  eventId: string;
-
-  /**
    * 事件名
    */
   @Prop({ required: true })

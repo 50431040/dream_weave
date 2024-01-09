@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { EventSchema } from '../schemas/event.schema';
 import { BullModule } from '@nestjs/bull';
 import { EVENT_QUEUE } from '../constants/bull';
+import { EventProcessor } from './event.processor';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { EVENT_QUEUE } from '../constants/bull';
       name: EVENT_QUEUE,
     }),
   ],
-  providers: [EventService],
+  providers: [EventService, EventProcessor],
   controllers: [EventController],
 })
 export class EventModule {}
