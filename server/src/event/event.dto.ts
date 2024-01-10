@@ -4,7 +4,7 @@ export class EventDTO {
   @IsNotEmpty()
   appId: string;
 
-  userId: any;
+  userId?: string;
 
   @IsNotEmpty()
   origin: string;
@@ -22,6 +22,6 @@ export class EventDTO {
   name: string;
 
   params?: Record<string, any>;
-  
+
   [key: string]: any;
 }

@@ -35,4 +35,7 @@ export class BaseField extends Document {
    */
   @Prop({ required: true })
   timestamp: string;
+
+  @Prop({ required: true })
+  deviceId: string;
 }

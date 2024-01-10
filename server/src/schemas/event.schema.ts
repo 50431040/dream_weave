@@ -15,6 +15,18 @@ export class EventModel extends BaseField {
   @Prop({ required: true })
   name: string;
 
+  @Prop({ type: Object })
+  params: Record<string, any>;
+
+  @Prop()
+  browser: string;
+
+  @Prop()
+  userAgent: string;
+
+  @Prop()
+  system: string;
+
   /**
    * 创建时间
    */

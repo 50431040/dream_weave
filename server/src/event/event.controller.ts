@@ -18,6 +18,7 @@ export class EventController {
     }
 
     for (const event of body) {
+      event.deviceId = uId;
       await this.eventQueue.add(event, {
         removeOnComplete: true,
       });
