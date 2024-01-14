@@ -1,0 +1,14 @@
+.container {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px #ccc;
+}
+
+.login_form {
+  width: 280px;
+}
+
+.login_btn {
+  width: 100%;
+}

@@ -15,9 +15,15 @@ export default defineConfig({
       redirect: '/home',
     },
     {
-      name: '首页',
+      name: 'Home',
       path: '/home',
       component: './Home',
+    },
+    {
+      name: 'Login',
+      path: '/login',
+      component: './Login',
+      layout: false,
     },
     {
       name: '权限演示',
@@ -31,5 +37,8 @@ export default defineConfig({
     },
   ],
   npmClient: 'pnpm',
+  cssLoaderModules: {},
+  define: {
+    'process.env.BASE_URL': 'http://localhost:3000',
+  },
 });
-

@@ -8,6 +8,7 @@ specifiers:
   '@types/react-dom': ^18.0.11
   '@umijs/max': ^4.1.0
   antd: ^5.4.0
+  axios: ^1.6.5
   husky: ^8.0.3
   lint-staged: ^13.2.0
   prettier: ^2.8.7
@@ -21,6 +22,7 @@ dependencies:
   '@ant-design/pro-layout': 7.17.16_antd@5.13.0
   '@umijs/max': 4.1.0_svc3thekoa7a3p33dhgd2ze5ee
   antd: 5.13.0
+  axios: 1.6.5
 
 devDependencies:
   '@types/react': 18.2.47
@@ -3437,6 +3439,16 @@ packages:
     dependencies:
       follow-redirects: 1.15.5
       form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /axios/1.6.5:
+    resolution: {integrity: sha512-Ii012v05KEVuUoFWmMW/UQv9aRIc3ZwkWDcM+h5Il8izZCtRVpDUfwpoFf7eOtajT3QiGR4yDUx7lPqHJULgbg==}
+    dependencies:
+      follow-redirects: 1.15.5
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -7567,6 +7579,10 @@ packages:
 
   /proxy-compare/2.5.1:
     resolution: {integrity: sha512-oyfc0Tx87Cpwva5ZXezSp5V9vht1c7dZBhvuV/y3ctkgMVUmiAGDVeeB0dKhGSyT0v1ZTEQYpe/RXlBVBNuCLA==}
+    dev: false
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: false
 
   /prr/1.0.1:

@@ -15,7 +15,8 @@
     "@ant-design/pro-components": "^2.4.4",
     "@ant-design/pro-layout": "^7.17.16",
     "@umijs/max": "^4.1.0",
-    "antd": "^5.4.0"
+    "antd": "^5.4.0",
+    "axios": "^1.6.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.33",
