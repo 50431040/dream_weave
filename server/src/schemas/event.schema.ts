@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { BaseField } from './base.schema';
 
-export type EventDocument = Event & Document;
+export type EventDocument = EventModel & Document;
 
 /**
  * 事件

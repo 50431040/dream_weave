@@ -11,6 +11,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { APP_FILTER } from '@nestjs/core';
 import { AllExceptionsFilter } from './filter/http-exception.filter';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { AllExceptionsFilter } from './filter/http-exception.filter';
     }),
     EventModule,
     ApplicationModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [
