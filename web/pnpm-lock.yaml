@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@ant-design/icons': ^5.0.1
   '@ant-design/pro-components': ^2.4.4
+  '@ant-design/pro-layout': ^7.17.16
   '@types/react': ^18.0.33
   '@types/react-dom': ^18.0.11
   '@umijs/max': ^4.1.0
@@ -17,6 +18,7 @@ specifiers:
 dependencies:
   '@ant-design/icons': 5.2.6
   '@ant-design/pro-components': 2.6.43_antd@5.13.0
+  '@ant-design/pro-layout': 7.17.16_antd@5.13.0
   '@umijs/max': 4.1.0_svc3thekoa7a3p33dhgd2ze5ee
   antd: 5.13.0
 
@@ -1882,7 +1884,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.8
       hoist-non-react-statics: 3.3.2
       react-is: 16.13.1
     dev: false
@@ -1893,7 +1895,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.8
       hoist-non-react-statics: 3.3.2
       react: 18.1.0
       react-is: 16.13.1
@@ -2718,7 +2720,7 @@ packages:
   /@umijs/history/5.3.1:
     resolution: {integrity: sha512-/e0cEGrR2bIWQD7pRl3dl9dcyRGeC9hoW0OCvUTT/hjY0EfUrkd6G8ZanVghPMpDuY5usxq9GVcvrT8KNXLWvA==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.8
       query-string: 6.14.1
     dev: false
 
@@ -5414,7 +5416,7 @@ packages:
   /history/5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.8
     dev: false
 
   /hmac-drbg/1.0.1:
@@ -8540,7 +8542,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.8
       invariant: 2.2.4
       prop-types: 15.8.1
       react-fast-compare: 3.2.2
@@ -8553,7 +8555,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.8
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.1.0
