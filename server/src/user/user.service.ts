@@ -1,14 +1,25 @@
-import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  Logger,
+  NotFoundException,
+  OnModuleInit,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { UserDocument } from '../schemas/user.schema';
 import { md5 } from '../utils';
 import { UserRole } from '../enum/role.enum';
+import { UserLoginDTO } from './user.dto';
+import { AuthService } from '../auth-jwt/auth-jwt.service';
 
 @Injectable()
 export class UserService implements OnModuleInit {
-  constructor(@InjectModel('user') private userModel: Model<UserDocument>) {}
-  
+  constructor(
+    @InjectModel('user') private userModel: Model<UserDocument>,
+    private readonly authService: AuthService,
+  ) {}
+
   logger = new Logger('UserService');
 
   onModuleInit() {
@@ -36,5 +47,21 @@ export class UserService implements OnModuleInit {
     }
 
     this.logger.error('please set ADMIN_USER and ADMIN_PASSWORD in .env file');
+  }
+
+  async login(userLoginDTO: UserLoginDTO) {
+    const user = await this.userModel.findOne({
+      username: userLoginDTO.username,
+      password: userLoginDTO.password,
+    });
+    if (!user) {
+      throw new NotFoundException('invalid username or password');
+    }
+
+    const token = await this.authService.login(user.id);
+    return {
+      username: user.username,
+      token,
+    };
   }
 }
