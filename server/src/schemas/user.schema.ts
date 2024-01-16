@@ -1,19 +1,22 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { BaseField } from './base.schema';
+import { UserRole } from '../enum/role.enum';
 
-export type EventDocument = UserModel & Document;
+export type UserDocument = UserModel & Document;
 
 /**
  * User
  */
 @Schema()
-export class UserModel extends BaseField {
+export class UserModel {
   @Prop({ required: true })
   username: string;
 
   @Prop()
   password: string;
+
+  @Prop({ type: String, enum: UserRole, default: UserRole.USER })
+  role: UserRole;
 
   @Prop()
   mobile?: string;
