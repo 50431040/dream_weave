@@ -16,7 +16,8 @@
     "@ant-design/pro-layout": "^7.17.16",
     "@umijs/max": "^4.1.0",
     "antd": "^5.4.0",
-    "axios": "^1.6.5"
+    "axios": "^1.6.5",
+    "crypto-js": "^4.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.33",

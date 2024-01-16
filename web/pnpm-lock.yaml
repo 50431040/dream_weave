@@ -9,6 +9,7 @@ specifiers:
   '@umijs/max': ^4.1.0
   antd: ^5.4.0
   axios: ^1.6.5
+  crypto-js: ^4.2.0
   husky: ^8.0.3
   lint-staged: ^13.2.0
   prettier: ^2.8.7
@@ -23,6 +24,7 @@ dependencies:
   '@umijs/max': 4.1.0_svc3thekoa7a3p33dhgd2ze5ee
   antd: 5.13.0
   axios: 1.6.5
+  crypto-js: 4.2.0
 
 devDependencies:
   '@types/react': 18.2.47
@@ -4052,6 +4054,10 @@ packages:
       public-encrypt: 4.0.3
       randombytes: 2.1.0
       randomfill: 1.0.4
+    dev: false
+
+  /crypto-js/4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
     dev: false
 
   /css-blank-pseudo/3.0.3_postcss@8.4.33:
