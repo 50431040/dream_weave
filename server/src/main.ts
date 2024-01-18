@@ -9,8 +9,11 @@ import {
   HttpStatus,
   ValidationPipe,
 } from '@nestjs/common';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
+  const isProduction = process.env.ENV === 'production';
+
   const app = await NestFactory.create(AppModule);
   app.use(helmet());
   app.use(compression());
@@ -25,7 +28,9 @@ async function bootstrap() {
       transform: true,
       exceptionFactory: (errors) => {
         console.log(errors);
-        const msg = Object.values(errors[0].constraints)[0];
+        const msg = isProduction
+          ? 'params invalid'
+          : Object.values(errors[0].constraints)[0];
         return new BadRequestException({
           message: msg,
           code: HttpStatus.BAD_REQUEST,
@@ -33,6 +38,17 @@ async function bootstrap() {
       },
     }),
   );
+
+  if (!isProduction) {
+    const options = new DocumentBuilder()
+      .setTitle('Dream Weave')
+      .setDescription('Dream Weave Api')
+      .addBearerAuth()
+      .build();
+    const document = SwaggerModule.createDocument(app, options);
+    SwaggerModule.setup('api', app, document);
+  }
+
   await app.listen(3000);
 }
 bootstrap();
